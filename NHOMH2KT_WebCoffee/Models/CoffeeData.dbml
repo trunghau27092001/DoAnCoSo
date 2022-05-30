@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CoffeeWeb" Class="CoffeeDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=LAPTOP-P0OS42PK\SQLEXPRESS;Initial Catalog=CoffeeWeb;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="CoffeeWebConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Account" Member="Accounts">
+    <Type Name="Account">
+      <Column Name="idCus" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nameCus" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="addressCus" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="phoneNum" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="username" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="avatar" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="idType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Account_tOrder" Member="tOrders" ThisKey="idCus" OtherKey="idCus" Type="tOrder" />
+      <Association Name="TypeAcc_Account" Member="TypeAcc" ThisKey="idType" OtherKey="idType" Type="TypeAcc" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TypeAcc" Member="TypeAccs">
+    <Type Name="TypeAcc">
+      <Column Name="idType" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nameType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="TypeAcc_Account" Member="Accounts" ThisKey="idType" OtherKey="idType" Type="Account" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Categories" Member="Categories">
+    <Type Name="Category">
+      <Column Name="idCate" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nameCate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Category_Product" Member="Products" ThisKey="idCate" OtherKey="idCate" Type="Product" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrderData" Member="OrderDatas">
+    <Type Name="OrderData">
+      <Column Name="idOrder" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idProd" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="amount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Product_OrderData" Member="Product" ThisKey="idProd" OtherKey="idProd" Type="Product" IsForeignKey="true" />
+      <Association Name="tOrder_OrderData" Member="tOrder" ThisKey="idOrder" OtherKey="idOrder" Type="tOrder" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product" Member="Products">
+    <Type Name="Product">
+      <Column Name="idProd" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nameProd" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="price" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decription" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="idCate" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="soluongKho" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="images" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Product_OrderData" Member="OrderDatas" ThisKey="idProd" OtherKey="idProd" Type="OrderData" />
+      <Association Name="Category_Product" Member="Category" ThisKey="idCate" OtherKey="idCate" Type="Category" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tOrder" Member="tOrders">
+    <Type Name="tOrder">
+      <Column Name="idOrder" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idCus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="payment" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="dateOrder" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="dateDeli" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="tOrder_OrderData" Member="OrderDatas" ThisKey="idOrder" OtherKey="idOrder" Type="OrderData" />
+      <Association Name="Account_tOrder" Member="Account" ThisKey="idCus" OtherKey="idCus" Type="Account" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "AboutUs";
+    Layout = "~/Views/MyLayout/MyLayout.cshtml";
+    var taikhoan = Session["Account"] as NHOMH2KT_WebCoffee.Models.Account;
+}
+
+<!-- Navbar Start -->
+<div class="container-fluid p-0 nav-bar">
+    <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+        <a href="/HomeUs" class="navbar-brand px-lg-4 m-0">
+            <h1 class="m-0 display-4 text-uppercase text-white">H2KT</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto p-4">
+                <a href="/HomeUs" class="nav-item nav-link ">Trang Chủ</a>
+                <a href="/AboutUs" class="nav-item nav-link active">Về Chúng Tôi</a>
+                <a href="/ServiceUs" class="nav-item nav-link ">Dịch Vụ</a>
+                <a href="/MenuUs" class="nav-item nav-link ">Sản Phẩm</a>
+                <a href="/TestimonialUs" class="nav-item nav-link ">Đánh giá khách hàng</a>
+                <a href="/ContactUs" class="nav-item nav-link">Thông Tin Liên Hệ</a>
+                <div class="nav-item dropdown">
+                    @Html.ValidationSummary(true)
+                    <a href="#" class="nav-link  dropdown-toggle" data-toggle="dropdown">@taikhoan.nameCus</a>
+                    <div class="dropdown-menu text-capitalize">
+                        <a href="/Thongtin" class="dropdown-item">Thông tin tài khoản</a>
+                        <a href="/GioHang" class="dropdown-item">Giỏ hàng</a>
+                        <a href="/ResetPassUs" class="dropdown-item">Đổi mật khẩu</a>
+                        <a href="/LogOut" class="dropdown-item">Log out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Navbar End -->
+<!-- Page Header Start -->
+<div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+    <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+        <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">VỀ CHÚNG TÔI</h1>
+        <div class="d-inline-flex mb-lg-5">
+            <p class="m-0 text-white"><a class="text-white" href="">Trang Chủ</a></p>
+            <p class="m-0 text-white px-2">/</p>
+            <p class="m-0 text-white">Về chúng tôi</p>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+<!-- About Start -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="section-title">
+            <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Về chúng tôi</h4>
+            <h1 class="display-4">Phục Vụ Năm 2022</h1>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 py-0 py-lg-5">
+                <h1 class="mb-3">KHỞI NGUỒN</h1>
+                <h5 class="mb-3">Thương hiệu bắt nguồn từ cà phê Việt Nam</h5>
+                <p>Từ tình yêu với Việt Nam và niềm đam mê cà phê, năm 2022, thương hiệu H2KT ra đời với khát vọng nâng tầm di sản cà phê lâu đời của Việt Nam và lan rộng tinh thần tự hào, kết nối hài hoà giữa truyền thống với hiện đại.</p>
+                <p></p>
+                <p>Bắt đầu với sản phẩm cà phê đóng gói tại Thành phố Hồ Chí Minh vào tháng 1 năm 2022, chúng tôi đã nhanh chóng phát triển và mở rộng thành thương hiệu quán cà phê nổi tiếng và không ngừng mở rộng hoạt động trong và ngoài nước.</p>
+                <p></p>
+                <p>Qua một chặng đường dài, chúng tôi đã không ngừng mang đến những sản phẩm cà phê thơm ngon, sánh đượm trong không gian thoải mái và lịch sự. Những ly cà phê của chúng tôi không chỉ đơn thuần là thức uống quen thuộc mà còn mang trên mình một sứ mệnh văn hóa phản ánh một phần nếp sống hiện đại của người Việt Nam.</p>
+                <p></p>
+                <p>Đến nay, H2KT vẫn duy trì khâu phân loại cà phê bằng tay để chọn ra từng hạt cà phê chất lượng nhất, rang mới mỗi ngày và phục vụ quý khách với nụ cười rạng rỡ trên môi. Bí quyết thành công của chúng tôi là đây: không gian quán tuyệt vời, sản phẩm tuyệt hảo và dịch vụ chu đáo với mức giá phù hợp.</p>
+            </div>
+            <div class="col-lg-4 py-5 py-lg-0" style="min-height: 500px;">
+                <div class="position-relative h-100">
+                    <img class="position-absolute w-100 h-100" src="~/Content/img/about.png" style="object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-lg-4 py-0 py-lg-5">
+                <h1 class="mb-3">Dịch vụ khách hàng</h1>
+                <p>Chúng tôi mong muốn mang đến cho bạn những trải nghiệm đáng nhớ mỗi lần đến H2KT! </p>
+                <h5 class="mb-3"><i class="fa fa-check text-primary mr-3"></i>Nhiệt tình</h5>
+                <h5 class="mb-3"><i class="fa fa-check text-primary mr-3"></i>Chuyên nghiệp</h5>
+                <h5 class="mb-3"><i class="fa fa-check text-primary mr-3"></i>Tận tình</h5>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="~/lib/easing/easing.min.js"></script>
+<script src="~/lib/waypoints/waypoints.min.js"></script>
+<script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="~/lib/tempusdominus/js/moment.min.js"></script>
+<script src="~/lib/tempusdominus/js/moment-timezone.min.js"></script>
+<script src="~/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+<!-- Contact Javascript File -->
+<script src="~/mail/jqBootstrapValidation.min.js"></script>
+<script src="~/mail/contact.js"></script>
+
+<!-- Template Javascript -->
+<script src="~/js/main.js"></script>

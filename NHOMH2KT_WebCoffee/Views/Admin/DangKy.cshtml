@@ -1,0 +1,124 @@
+﻿@model NHOMH2KT_WebCoffee.Models.Account
+
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/MyLayout/MyLayout.cshtml";
+}
+<link href="~/css/stylecustom.css" rel="stylesheet" type="text/css" media="screen" runat="server" />
+<!-- Navbar Start -->
+<div class="container-fluid p-0 nav-bar">
+    <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+        <a href="/Home" class="navbar-brand px-lg-4 m-0">
+            <h1 class="m-0 display-4 text-uppercase text-white">H2KT</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto p-4">
+                <a href="/Home" class="nav-item nav-link ">Trang Chủ</a>
+                <a href="/About" class="nav-item nav-link ">Về Chúng Tôi</a>
+                <a href="/Service" class="nav-item nav-link ">Dịch Vụ</a>
+                <a href="/Menu" class="nav-item nav-link ">Sản Phẩm</a>
+                <a href="/Testimonial" class="nav-item nav-link ">Khách Hàng Đánh Giá</a>
+                <a href="/Contact" class="nav-item nav-link">Thông Tin Liên Hệ</a>
+                <a href="/Login" class="nav-item nav-link active">Đăng Nhập</a>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Navbar End -->
+<!-- Page Header Start -->
+<div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+    <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+        <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Đăng Ký Tài Khoản</h1>
+        <div class="d-inline-flex mb-lg-5">
+            <p class="m-0 text-white"><a class="text-white" href="">Trang Chủ</a></p>
+            <p class="m-0 text-white px-2">/</p>
+            <p class="m-0 text-white">Đăng Ký Tài Khoản</p>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal page-center">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <strong>Họ tên:</strong>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nameCus, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.nameCus, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <strong>Địa chỉ:</strong>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.addressCus, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.addressCus, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <strong>Email:</strong>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                @ViewData["LoiEmail"]
+            </div>
+        </div>
+
+        <div class="form-group">
+            <strong>Số điện thoại:</strong>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.phoneNum, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.phoneNum, "", new { @class = "text-danger" })
+                @ViewData["LoiPhone"]
+            </div>
+        </div>
+
+        <div class="form-group">
+            <strong>Tên đăng nhập:</strong>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+                @ViewData["LoiUserName"]
+            </div>
+        </div>
+
+        <div class="form-group">
+            <strong>Mật khẩu:</strong>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
+                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                @ViewData["LoiPass"]
+            </div>
+        </div>
+        <div class="form-group">
+            <strong>Mật Khẩu Xác Nhận:</strong>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line input-validation-error"
+                       data-val="true" data-val-required="Phải nhập mật khẩu xác nhận!"
+                       id="MatKhauXacNhan" name="MatKhauXacNhan" type="password" value="" aria-
+                       describedby="MatKhauXacNhan-error" aria-invalid="true">
+
+                @ViewData["NhapMKXN"]
+                @ViewData["MatKhauGiongNhau"]
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="btn-cre col-md-10">
+                <input type="submit" value="Đăng Ký" />
+            </div>
+        </div>
+    </div>
+}
+
+<div class="btn-back">
+    @Html.ActionLink("<< Trở lại", "Index", "Coffee")
+</div>

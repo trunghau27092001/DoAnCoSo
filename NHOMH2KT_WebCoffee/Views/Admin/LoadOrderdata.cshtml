@@ -1,0 +1,105 @@
+﻿@model IEnumerable<NHOMH2KT_WebCoffee.Models.tOrder>
+
+@{
+    ViewBag.Title = "LoadOrderdata";
+    Layout = "~/Views/MyLayout/MyLayout.cshtml";
+    var taikhoan = Session["Account"] as NHOMH2KT_WebCoffee.Models.Account;
+}
+<link href="~/css/stylecustom.css" rel="stylesheet" type="text/css" media="screen" runat="server" />
+<!-- Navbar Start -->
+<div class="container-fluid p-0 nav-bar">
+    <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+        <a href="" class="navbar-brand px-lg-4 m-0">
+            <h1 class="m-0 display-4 text-uppercase text-white">H2KT</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto p-4">
+                <div class="nav-item dropdown">
+                    @Html.ValidationSummary(true)
+                    <a href="#" class="nav-link  dropdown-toggle" data-toggle="dropdown">@taikhoan.nameCus</a>
+                    <div class="dropdown-menu text-capitalize">
+                        <a href="~/Admin/ResetPass" class="dropdown-item">Đổi mật khẩu</a>
+                        <a href="/LogOut" class="dropdown-item">Log out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Navbar End -->
+<!-- Page Header Start -->
+<div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+    <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+        <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Quản Lý</h1>
+        <div class="d-inline-flex mb-lg-5">
+            <!--Chỉnh sửa-->
+            <div class="btn-act ">
+                @Html.ActionLink("Quản lý sản phẩm", "Product")
+            </div>
+            <div class="btn-act">
+                @Html.ActionLink("Quản lý danh mục", "Category")
+            </div>
+            <div class="btn-act btn-act-active">
+                @Html.ActionLink("Quản lý đơn hàng", "LoadOrderdata")
+            </div>
+        </div>
+    </div>
+</div>
+<h2 style="text-align:center">Chi tiết đơn đặt hàng</h2>
+
+
+<table class="table page-center">
+    <tr>
+        <th><strong>Tên Khách Hàng</strong></th>
+        <th><strong>Thanh Toán</strong></th>
+        <th><strong>Giao Hàng</strong></th>
+        <th><strong>Địa Chỉ</strong></th>
+        <th><strong>Số Điện Thoại</strong></th>
+        <th><strong>Email</strong></th>
+
+        <th><strong>Ngày Đặt</strong></th>
+
+        <th><strong>Ngày Giao</strong></th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Account.nameCus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.payment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Account.addressCus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Account.phoneNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Account.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateOrder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateDeli)
+            </td>
+
+        </tr>
+    }
+
+</table>
+<!--Quay về-->
+<div class="btn-back">
+    @Html.ActionLink("<< Trở lại", "Manage")
+</div>

@@ -1,0 +1,122 @@
+﻿@{
+    ViewBag.Title = "TestimonialUs";
+    Layout = "~/Views/MyLayout/MyLayout.cshtml";
+    var taikhoan = Session["Account"] as NHOMH2KT_WebCoffee.Models.Account;
+}
+
+<!-- Navbar Start -->
+<div class="container-fluid p-0 nav-bar">
+    <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+        <a href="/HomeUs" class="navbar-brand px-lg-4 m-0">
+            <h1 class="m-0 display-4 text-uppercase text-white">H2KT</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto p-4">
+                <a href="/HomeUs" class="nav-item nav-link ">Trang Chủ</a>
+                <a href="/AboutUs" class="nav-item nav-link ">Về Chúng Tôi</a>
+                <a href="/ServiceUs" class="nav-item nav-link ">Dịch Vụ</a>
+                <a href="/MenuUs" class="nav-item nav-link ">Sản Phẩm</a>
+                <a href="/TestimonialUs" class="nav-item nav-link active">Đánh giá khách hàng</a>
+                <a href="/ContactUs" class="nav-item nav-link">Thông Tin Liên Hệ</a>
+                <div class="nav-item dropdown">
+                    @Html.ValidationSummary(true)
+                    <a href="#" class="nav-link  dropdown-toggle" data-toggle="dropdown">@taikhoan.nameCus</a>
+                    <div class="dropdown-menu text-capitalize">
+                        <a href="/Thongtin" class="dropdown-item">Thông tin tài khoản</a>
+                        <a href="/GioHang" class="dropdown-item">Giỏ hàng</a>
+                        <a href="/ResetPassUs" class="dropdown-item">Đổi mật khẩu</a>
+                        <a href="/LogOut" class="dropdown-item">Log out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Navbar End -->
+<!-- Page Header Start -->
+<div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+    <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+        <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Khách Hàng Đánh Giá</h1>
+        <div class="d-inline-flex mb-lg-5">
+            <p class="m-0 text-white"><a class="text-white" href="">Trang Chủ</a></p>
+            <p class="m-0 text-white px-2">/</p>
+            <p class="m-0 text-white">Khách Hàng Đánh Giá</p>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+<!-- Testimonial Start -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="section-title">
+            <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Khách Hàng Đánh Giá</h4>
+            <h1 class="display-4">Đánh Giá Về Chúng Tôi</h1>
+        </div>
+        <div class="owl-carousel testimonial-carousel">
+            <div class="testimonial-item">
+                <div class="d-flex align-items-center mb-3">
+                    <img class="img-fluid" src="~/Content/img/testimonial-1.jpg" alt="">
+                    <div class="ml-3">
+                        <h4>Minh Nhật</h4>
+                        <i>Doanh nhân</i>
+                    </div>
+                </div>
+                <p class="m-0">Cà phê ở đây chất lượng rất tốt. Tôi rất thích</p>
+            </div>
+            <div class="testimonial-item">
+                <div class="d-flex align-items-center mb-3">
+                    <img class="img-fluid" src="~/Content/img/testimonial-2.jpg" alt="">
+                    <div class="ml-3">
+                        <h4>Trí Tín</h4>
+                        <i>Giáo viên</i>
+                    </div>
+                </div>
+                <p class="m-0">Dịch vụ tiện lợi, sản phẩm chất lượng. Tôi đánh giá đây là một trang web uy tín.</p>
+            </div>
+            <div class="testimonial-item">
+                <div class="d-flex align-items-center mb-3">
+                    <img class="img-fluid" src="~/Content/img/testimonial-3.jpg" alt="">
+                    <div class="ml-3">
+                        <h4>Hoàng Phúc</h4>
+                        <i>Lập trình viên</i>
+                    </div>
+                </div>
+                <p class="m-0">Tôi có rất ít thời gian để uống cà phê nên tôi chọn uống cà phê tự pha, cà phê ở đây rất ngon.</p>
+            </div>
+            <div class="testimonial-item">
+                <div class="d-flex align-items-center mb-3">
+                    <img class="img-fluid" src="~/Content/img/testimonial-4.jpg" alt="">
+                    <div class="ml-3">
+                        <h4>Đạt Huy</h4>
+                        <i>Quản lý khách sạn</i>
+                    </div>
+                </div>
+                <p class="m-0">Cà phê hạt đặt mua ở trang web này rất ngon, tôi rất thích.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial End -->
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="~/lib/easing/easing.min.js"></script>
+<script src="~/lib/waypoints/waypoints.min.js"></script>
+<script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="~/lib/tempusdominus/js/moment.min.js"></script>
+<script src="~/lib/tempusdominus/js/moment-timezone.min.js"></script>
+<script src="~/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+<!-- Contact Javascript File -->
+<script src="~/mail/jqBootstrapValidation.min.js"></script>
+<script src="~/mail/contact.js"></script>
+
+<!-- Template Javascript -->
+<script src="~/js/main.js"></script>

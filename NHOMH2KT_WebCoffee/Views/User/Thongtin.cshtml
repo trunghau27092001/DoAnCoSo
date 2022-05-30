@@ -1,0 +1,91 @@
+﻿@model NHOMH2KT_WebCoffee.Models.Account
+
+@{ ViewBag.Title = "Thongtin";
+    Layout = "~/Views/MyLayout/MyLayout.cshtml";
+    var taikhoan = Session["Account"] as NHOMH2KT_WebCoffee.Models.Account; }
+<link href="~/css/stylecustom.css" rel="stylesheet" type="text/css" media="screen" runat="server" />
+<!-- Navbar Start -->
+<div class="container-fluid p-0 nav-bar">
+    <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+        <a href="/HomeUs" class="navbar-brand px-lg-4 m-0">
+            <h1 class="m-0 display-4 text-uppercase text-white">H2KT</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto p-4">
+                <a href="/HomeUs" class="nav-item nav-link ">Trang Chủ</a>
+                <a href="/AboutUs" class="nav-item nav-link ">Về Chúng Tôi</a>
+                <a href="/ServiceUs" class="nav-item nav-link ">Dịch Vụ</a>
+                <a href="/MenuUs" class="nav-item nav-link ">Sản Phẩm</a>
+                <a href="/TestimonialUs" class="nav-item nav-link ">Đánh giá khách hàng</a>
+                <a href="/ContactUs" class="nav-item nav-link">Thông Tin Liên Hệ</a>
+                <div class="nav-item dropdown">
+                    @Html.ValidationSummary(true)
+                    <a href="#" class="nav-link active  dropdown-toggle" data-toggle="dropdown">@taikhoan.nameCus</a>
+                    <div class="dropdown-menu text-capitalize">
+                        <a href="/Thongtin" class="dropdown-item">Thông tin tài khoản</a>
+                        <a href="/GioHang" class="dropdown-item">Giỏ hàng</a>
+                        <a href="/ResetPassUs" class="dropdown-item">Đổi mật khẩu</a>
+                        <a href="/LogOut" class="dropdown-item">Log out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Navbar End -->
+<!-- Page Header Start -->
+<div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+    <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+        <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Thông Tin</h1>
+        <div class="d-inline-flex mb-lg-5">
+            <p class="m-0 text-white"><a class="text-white" href="">Trang Chủ</a></p>
+            <p class="m-0 text-white px-2">/</p>
+            <p class="m-0 text-white">Thông Tin</p>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+    
+<div class="page-center container">
+    <hr />
+    <dl class="dl-horizontal page-center">
+        <strong>
+            Tên khách hàng:
+        </strong>
+
+        <dd>
+            @Html.DisplayFor(model => model.nameCus)
+        </dd>
+
+        <strong>
+            Địa chỉ:
+        </strong>
+
+        <dd>
+            @Html.DisplayFor(model => model.addressCus)
+        </dd>
+
+        <strong>
+            Email:
+        </strong>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <strong>
+            Số điện thoại:
+        </strong>
+
+        <dd>
+            @Html.DisplayFor(model => model.phoneNum)
+        </dd>
+
+    </dl>
+</div>
+<div class="btn-back">
+    @Html.ActionLink("<< Trở lại", "IndexUs")
+</div>

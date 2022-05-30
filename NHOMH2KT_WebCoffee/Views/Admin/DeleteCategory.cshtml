@@ -1,0 +1,70 @@
+﻿@model NHOMH2KT_WebCoffee.Models.Category
+
+@{
+    ViewBag.Title = "DeleteCategory";
+    Layout = "~/Views/MyLayout/MyLayout.cshtml";
+    var taikhoan = Session["Account"] as NHOMH2KT_WebCoffee.Models.Account;
+}
+
+<link href="~/css/style.min.css" rel="stylesheet">
+<link href="~/css/stylecustom.css" rel="stylesheet" type="text/css" media="screen" runat="server" />
+<!-- Navbar Start -->
+<div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+    <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+        <a href="/Home" class="navbar-brand px-lg-4 m-0">
+            <h1 class="m-0 display-4 text-uppercase text-white">H2KT</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto p-4">
+                <div class="nav-item ">
+                    @Html.ValidationSummary(true)
+                    <a href="#" class="nav-link  ">@taikhoan.nameCus</a>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Navbar End -->
+<!--Delete-->
+<h2 style="text-align:center">Xóa danh mục</h2>
+<div class="container-fluid table-bordered">
+    <div class="container  ">
+        <div class=" page-center">
+            <hr />
+            <dl>
+                <dt>
+                    <strong>Tên danh mục</strong>
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.nameCate)
+                </dd>
+            </dl>
+            <div class="col-md-offset-2 col-md-3">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions btn-del">
+                        <form id="form" action="" method="post">
+                            <input type="submit" value="Xóa" onclick="return confirm('Bạn có thật sự muốn xóa danh mục này ?');" />
+                        </form>
+                        <div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div class="btn-back">
+    @Html.ActionLink("<< Trở lại", "Category")
+</div>

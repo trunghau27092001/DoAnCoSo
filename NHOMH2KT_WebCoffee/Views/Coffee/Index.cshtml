@@ -1,0 +1,254 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/MyLayout/MyLayout.cshtml";
+}
+
+<!-- Navbar Start -->
+<div class="container-fluid p-0 nav-bar">
+    <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+        <a href="/Home" class="navbar-brand px-lg-4 m-0">
+            <h1 class="m-0 display-4 text-uppercase text-white">H2KT</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto p-4">
+                <a href="/Home" class="nav-item nav-link active">Trang Chủ</a>
+                <a href="/About" class="nav-item nav-link ">Về Chúng Tôi</a>
+                <a href="/Service" class="nav-item nav-link ">Dịch Vụ</a>
+                <a href="/Menu" class="nav-item nav-link ">Sản Phẩm</a>
+                <a href="/Testimonial" class="nav-item nav-link ">Khách Hàng Đánh Giá</a>
+                <a href="/Contact" class="nav-item nav-link">Thông Tin Liên Hệ</a>
+                <a href="/Login" class="nav-item nav-link">Đăng Nhập</a>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Navbar End -->
+<!-- Carousel Start -->
+<div class="container-fluid p-0 mb-5">
+    <div id="blog-carousel" class="carousel slide overlay-bottom" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="w-100" src="~/Content/img/carousel-1.jpg" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <h2 class="text-primary font-weight-medium m-0">Chúng Tôi Đã Phục Vụ</h2>
+                    <h1 class="display-1 text-white m-0">CÀ PHÊ</h1>
+                    <h2 class="text-white m-0">Từ Năm 2012</h2>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="w-100" src="~/Content/img/carousel-2.jpg" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <h2 class="text-primary font-weight-medium m-0">Đối Với Chúng Tôi</h2>
+                    <h1 class="display-1 text-white m-0">UY TÍN</h1>
+                    <h2 class="text-white m-0">Là Thương Hiệu</h2>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#blog-carousel" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#blog-carousel" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+</div>
+<!-- Carousel End -->
+<!-- About Start -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="section-title">
+            <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Về Chúng Tôi</h4>
+            <h1 class="display-4">Thành Lập Năm 2012</h1>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 py-0 py-lg-5">
+                <h1 class="mb-3">Câu Chuyện Của Chúng Tôi</h1>
+                <h5 class="mb-3">Thương hiệu bắt nguồn từ cà phê Việt Nam</h5>
+                <p>
+                    Từ tình yêu với Việt Nam và niềm đam mê cà phê, năm 2012, thương hiệu H2KT ra đời với khát vọng nâng tầm di sản cà phê lâu đời của Việt Nam và lan rộng tinh thần tự hào, kết nối hài hoà giữa truyền thống với hiện đại.
+
+                    Bắt đầu với sản phẩm cà phê đóng gói tại Thành phố Hồ Chí Minh vào tháng 1 năm 2012, chúng tôi đã nhanh chóng phát triển và mở rộng thành thương hiệu quán cà phê nổi tiếng và không ngừng mở rộng hoạt động trong và ngoài nước.
+
+                    Qua một chặng đường dài...
+                </p>
+                <a href="/About" class="btn btn-secondary font-weight-bold py-2 px-4 mt-2">Learn More</a>
+            </div>
+            <div class="col-lg-4 py-5 py-lg-0" style="min-height: 500px;">
+                <div class="position-relative h-100">
+                    <img class="position-absolute w-100 h-100" src="~/Content/img/about.png" style="object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-lg-4 py-0 py-lg-5">
+                <h1 class="mb-3">Tầm Nhìn Tương Lai</h1>
+                <p>Chúng tôi mong muốn nâng tầm cà phê Việt Nam lên một tầm cao mới trở thành một thương hiệu mỗi khi nhắc đến đất nước Việt Nam.</p>
+                <h5 class="mb-3"><i class="fa fa-check text-primary mr-3"></i>Nâng tầm cà phê Việt</h5>
+                <h5 class="mb-3"><i class="fa fa-check text-primary mr-3"></i>Tận hưởng hương vị ngọt ngào</h5>
+                <h5 class="mb-3"><i class="fa fa-check text-primary mr-3"></i>Chất lượng thượng hạn</h5>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+<!-- Service Start -->
+<div class="container-fluid pt-5">
+    <div class="container">
+        <div class="section-title">
+            <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Dịch Vụ Của Chúng Tôi</h4>
+            <h1 class="display-4">Thực Phẩm Tươi & Nguyên Chất</h1>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 mb-5">
+                <div class="row align-items-center">
+                    <div class="col-sm-5">
+                        <img class="img-fluid mb-3 mb-sm-0" src="~/Content/img/service-1.jpg" alt="">
+                    </div>
+                    <div class="col-sm-7">
+                        <h4><i class="fa fa-truck service-icon"></i>Giao Hàng Tận Nơi & Nhanh Chóng</h4>
+                        <p class="m-0">
+                            Chúng tôi có các dịch vụ giao hàng tận nơi, tận tâm, tận tình luôn sẵn sàng phục vụ khách
+                            hàng.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-5">
+                <div class="row align-items-center">
+                    <div class="col-sm-5">
+                        <img class="img-fluid mb-3 mb-sm-0" src="~/Content/img/service-2.jpg" alt="">
+                    </div>
+                    <div class="col-sm-7">
+                        <h4><i class="fa fa-coffee service-icon"></i>Trà & Hạt Cà Phê Nguyên Chất</h4>
+                        <p class="m-0">
+                            Đội ngũ thu hoạch, sàn lọc hạt cà phê và lá trà chuyên nghiệp, làm việc ngày đêm để mang
+                            lại những sản phẩm thơm ngon từ những nguyên liệu nguyên chất.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-5">
+                <div class="row align-items-center">
+                    <div class="col-sm-5">
+                        <img class="img-fluid mb-3 mb-sm-0" src="~/Content/img/service-3.jpg" alt="">
+                    </div>
+                    <div class="col-sm-7">
+                        <h4><i class="fa fa-award service-icon"></i>Chất Lượng Sẩn Phẩm Tốt Nhất</h4>
+                        <p class="m-0">
+                            Từ nguyên liệu nguyên chất, các bartender của chúng tôi sẽ dùng kinh nghiệm của mình để
+                            pha cho khách hàng những thức uống thơm ngon.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-5">
+                <div class="row align-items-center">
+                    <div class="col-sm-5">
+                        <img class="img-fluid mb-3 mb-sm-0" src="~/Content/img/service-4.jpg" alt="">
+                    </div>
+                    <div class="col-sm-7">
+                        <h4><i class="fa fa-table service-icon"></i>Đặt Hàng Online & Tiện Lợi</h4>
+                        <p class="m-0">
+                            Nếu khách hàng không có thời gian để trực tiếp đến cửa hàng chúng tôi thì dịch vụ đặt hàng
+                            online sẽ giúp khách hàng có thể vừa làm việc vừa thưởng thức thức uống thơm ngon từ chúng tôi.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Service End -->
+<!-- Offer Start -->
+<div class="offer container-fluid my-5 py-5 text-center position-relative overlay-top overlay-bottom">
+    <div class="container py-5">
+        <h1 class="display-3 text-primary mt-3">Khuyến Mãi Cực Lớn</h1>
+        <h1 class="text-white mb-3">Chủ Nhật Say Đắm</h1>
+        <h4 class="text-white font-weight-normal mb-4 pb-3">Duy nhất ngày chủ nhật tuần này.</h4>
+        <form class="form-inline justify-content-center mb-4">
+            <div class="input-group">
+                <input type="text" class="form-control p-4" placeholder="Email của bạn" style="height: 60px;">
+                <div class="input-group-append">
+                    <button class="btn btn-primary font-weight-bold px-4" type="submit">Nhận ngay</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Offer End -->
+
+
+<!-- Testimonial Start -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="section-title">
+            <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Khách Hàng Đánh Giá</h4>
+            <h1 class="display-4">Đánh Giá Về Chúng Tôi</h1>
+        </div>
+        <div class="owl-carousel testimonial-carousel">
+            <div class="testimonial-item">
+                <div class="d-flex align-items-center mb-3">
+                    <img class="img-fluid" src="~/Content/img/testimonial-1.jpg" alt="">
+                    <div class="ml-3">
+                        <h4>Minh Nhật</h4>
+                        <i>Doanh nhân</i>
+                    </div>
+                </div>
+                <p class="m-0">Cà phê ở đây chất lượng rất tốt. Tôi rất thích</p>
+            </div>
+            <div class="testimonial-item">
+                <div class="d-flex align-items-center mb-3">
+                    <img class="img-fluid" src="~/Content/img/testimonial-2.jpg" alt="">
+                    <div class="ml-3">
+                        <h4>Trí Tín</h4>
+                        <i>Giáo viên</i>
+                    </div>
+                </div>
+                <p class="m-0">Dịch vụ tiện lợi, sản phẩm chất lượng. Tôi đánh giá đây là một trang web uy tín.</p>
+            </div>
+            <div class="testimonial-item">
+                <div class="d-flex align-items-center mb-3">
+                    <img class="img-fluid" src="~/Content/img/testimonial-3.jpg" alt="">
+                    <div class="ml-3">
+                        <h4>Hoàng Phúc</h4>
+                        <i>Lập trình viên</i>
+                    </div>
+                </div>
+                <p class="m-0">Tôi có rất ít thời gian để uống cà phê nên tôi chọn uống cà phê tự pha, cà phê ở đây rất ngon.</p>
+            </div>
+            <div class="testimonial-item">
+                <div class="d-flex align-items-center mb-3">
+                    <img class="img-fluid" src="~/Content/img/testimonial-4.jpg" alt="">
+                    <div class="ml-3">
+                        <h4>Đạt Huy</h4>
+                        <i>Quản lý khách sạn</i>
+                    </div>
+                </div>
+                <p class="m-0">Cà phê hạt đặt mua ở trang web này rất ngon, tôi rất thích.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial End -->
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="~/lib/easing/easing.min.js"></script>
+<script src="~/lib/waypoints/waypoints.min.js"></script>
+<script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="~/lib/tempusdominus/js/moment.min.js"></script>
+<script src="~/lib/tempusdominus/js/moment-timezone.min.js"></script>
+<script src="~/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+<!-- Contact Javascript File -->
+<script src="~/mail/jqBootstrapValidation.min.js"></script>
+<script src="~/mail/contact.js"></script>
+
+<!-- Template Javascript -->
+<script src="~/js/main.js"></script>

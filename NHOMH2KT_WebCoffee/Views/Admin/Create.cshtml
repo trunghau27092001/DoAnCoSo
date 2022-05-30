@@ -1,0 +1,112 @@
+﻿@model NHOMH2KT_WebCoffee.Models.Product
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/MyLayout/MyLayout.cshtml";
+    var taikhoan = Session["Account"] as NHOMH2KT_WebCoffee.Models.Account;
+}
+<link href="~/css/stylecustom.css" rel="stylesheet" type="text/css" media="screen" runat="server" />
+<!-- Navbar Start -->
+<div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+    <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+        <a href="/Home" class="navbar-brand px-lg-4 m-0">
+            <h1 class="m-0 display-4 text-uppercase text-white">H2KT</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto p-4">
+                <div class="nav-item ">
+                    @Html.ValidationSummary(true)
+                    <a href="#" class="nav-link  ">@taikhoan.nameCus</a>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Navbar End -->
+<h2 style="text-align:center">Thêm Sản Phẩm</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container-fluid  table-bordered">
+        <div class="form-horizontal   page-center">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <strong class="col-md-offset-2 col-md-10">
+                    Mã sản phẩm
+                </strong>
+                <div class="col-md-auto">
+                    @Html.EditorFor(model => model.idProd, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.idProd, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <strong class="col-md-offset-2 col-md-10">
+                    Tên sản phẩm
+                </strong>
+                <div class="col-md-auto">
+                    @Html.EditorFor(model => model.nameProd, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.nameProd, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <strong class="col-md-offset-2 col-md-10">
+                    Giá tiền
+                </strong>
+                <div class="col-md-auto">
+                    @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <strong class="col-md-offset-2 col-md-10">
+                    Mô tả
+                </strong>
+                <div class="col-md-auto">
+                    @Html.EditorFor(model => model.decription, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.decription, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <strong class="col-md-offset-2 col-md-10">
+                    Loại sản phẩm
+                </strong>
+                <div class="col-md-auto">
+                    @Html.EditorFor(model => model.idCate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.idCate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <strong class="col-md-offset-2 col-md-10">
+                    Hình ảnh
+                </strong>
+                <div class="col-md-auto">
+                    @Html.EditorFor(model => model.images, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.images, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-auto btn-cre">
+                    <input type="submit" value="Tạo mới" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}
+<div class="btn-back">
+    @Html.ActionLink("<< Trở lại", "Product")
+</div>

@@ -1,0 +1,132 @@
+﻿@model PagedList.IPagedList<NHOMH2KT_WebCoffee.Models.Product>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Manage";
+    Layout = "~/Views/MyLayout/MyLayout.cshtml";
+    var taikhoan = Session["Account"] as NHOMH2KT_WebCoffee.Models.Account;
+}
+<link href="~/css/stylecustom.css" rel="stylesheet" type="text/css" media="screen" runat="server" />
+<!-- Navbar Start -->
+<div class="container-fluid p-0 nav-bar">
+    <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+        <a href="" class="navbar-brand px-lg-4 m-0">
+            <h1 class="m-0 display-4 text-uppercase text-white">H2KT</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto p-4">
+                <div class="nav-item dropdown">
+                    @Html.ValidationSummary(true)
+                    <a href="#" class="nav-link  dropdown-toggle" data-toggle="dropdown">@taikhoan.nameCus</a>
+                    <div class="dropdown-menu text-capitalize">
+                        <a href="~/Admin/ResetPass" class="dropdown-item">Đổi mật khẩu</a>
+                        <a href="/LogOut" class="dropdown-item">Log out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Navbar End -->
+<!-- Page Header Start -->
+<div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+    <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+        <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Quản Lý</h1>
+        <div class="d-inline-flex mb-lg-5">
+            <!--Chỉnh sửa-->
+            <div class="btn-act">
+                @Html.ActionLink("Quản lý sản phẩm", "Product")
+            </div>
+            <div class="btn-act">
+                @Html.ActionLink("Quản lý danh mục", "Category")
+            </div>
+            <div class="btn-act">
+                @Html.ActionLink("Quản lý đơn hàng", "LoadOrderdata")
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Menu Start -->
+<div class="container-fluid pt-5 table-bordered">
+    <div class="container">
+        <div class="section-title">
+            <h2 class="text-primary text-uppercase">Sản Phẩm & Giá Tiền</h2>
+            <h1 class="display-4">Danh Mục</h1>
+        </div>
+        <!-- Page Header End -->
+        <table class="table">
+            <tr style="text-align:center; font-weight:bold">
+                <th>
+                    Tên
+                </th>
+                <th>
+                    Giá
+                </th>
+                <th>
+                    Mô tả
+                </th>
+                <th>
+                    Tên loại
+                </th>
+                <th>
+                    Ảnh
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nameProd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.decription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.nameCate)
+                    </td>
+                    <td>
+                        <div class="content-image">
+                            <img src="@item.images" alt="Alternate Text" />
+                        </div>
+
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+<!--danh sách trang-->
+<div>
+    <div class="page">
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+    </div>
+    <div class="page-list">
+        @Html.PagedListPager(Model, page => Url.Action("Manage", new { page = page }))
+    </div>
+</div>
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="~/lib/easing/easing.min.js"></script>
+<script src="~/lib/waypoints/waypoints.min.js"></script>
+<script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="~/lib/tempusdominus/js/moment.min.js"></script>
+<script src="~/lib/tempusdominus/js/moment-timezone.min.js"></script>
+<script src="~/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+<!-- Contact Javascript File -->
+<script src="~/mail/jqBootstrapValidation.min.js"></script>
+<script src="~/mail/contact.js"></script>
+
+<!-- Template Javascript -->
+<script src="~/js/main.js"></script>

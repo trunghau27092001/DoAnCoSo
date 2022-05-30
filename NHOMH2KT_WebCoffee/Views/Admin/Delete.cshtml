@@ -1,0 +1,98 @@
+﻿@model NHOMH2KT_WebCoffee.Models.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/MyLayout/MyLayout.cshtml";
+    var taikhoan = Session["Account"] as NHOMH2KT_WebCoffee.Models.Account;
+}
+<link href="~/css/style.min.css" rel="stylesheet">
+<link href="~/css/stylecustom.css" rel="stylesheet" type="text/css" media="screen" runat="server" />
+<!-- Navbar Start -->
+<div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+    <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+        <a href="/Home" class="navbar-brand px-lg-4 m-0">
+            <h1 class="m-0 display-4 text-uppercase text-white">H2KT</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto p-4">
+                <div class="nav-item ">
+                    @Html.ValidationSummary(true)
+                    <a href="#" class="nav-link  ">@taikhoan.nameCus</a>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Navbar End -->
+
+
+<h2 style="text-align:center">Xóa sản phẩm</h2>
+<div class="container-fluid  table-bordered ">
+    <div class="container">
+        <div class="table  page-center ">
+            <hr />
+            <dl>
+                <dt>
+                    <strong>Tên sản phẩm</strong>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.nameProd)
+                </dd>
+                <dt>
+                    <strong>Giá sản phẩm</strong>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.price)
+                </dd>
+                <dt>
+                    <strong>Mô tả</strong>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.decription)
+                </dd>
+                <dt>
+                    <strong>Loại</strong>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Category.nameCate)
+                </dd>
+                <dd>
+                    <strong>Hình ảnh</strong>
+                </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.images)
+                </dd>
+                <dt class="content-image">
+                    <img src="@Model.images" alt="Alternate Text" />
+                </dt>
+
+            </dl>
+            <div class="col-md-offset-2 col-md-auto">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-actions btn-del">
+                        <form id="form" action="" method="post">
+                            <input type="submit" value="Xóa" onclick="return confirm('Bạn có thật sự muốn xóa sản phẩm này ?');" />
+                        </form>
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="btn-back">
+    @Html.ActionLink("<< Trở lại", "Product")
+</div>

@@ -1,0 +1,147 @@
+﻿@model PagedList.IPagedList<NHOMH2KT_WebCoffee.Models.Product>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "MenuUs";
+    Layout = "~/Views/MyLayout/MyLayout.cshtml";
+    var taikhoan = Session["Account"] as NHOMH2KT_WebCoffee.Models.Account;
+}
+<link href="~/css/stylecustom.css" rel="stylesheet" type="text/css" media="screen" runat="server" />
+
+<!-- Navbar Start -->
+<div class="container-fluid p-0 nav-bar">
+    <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+        <a href="/HomeUs" class="navbar-brand px-lg-4 m-0">
+            <h1 class="m-0 display-4 text-uppercase text-white">H2KT</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto p-4">
+                <a href="/HomeUs" class="nav-item nav-link  ">Trang Chủ</a>
+                <a href="/AboutUs" class="nav-item nav-link ">Về Chúng Tôi</a>
+                <a href="/ServiceUs" class="nav-item nav-link ">Dịch Vụ</a>
+                <a href="/MenuUs" class="nav-item nav-link active">Sản Phẩm</a>
+                <a href="/TestimonialUs" class="nav-item nav-link ">Đánh giá khách hàng</a>
+                <a href="/ContactUs" class="nav-item nav-link">Thông Tin Liên Hệ</a>
+                <div class="nav-item dropdown">
+                    @Html.ValidationSummary(true)
+                    <a href="#" class="nav-link  dropdown-toggle" data-toggle="dropdown">@taikhoan.nameCus</a>
+                    <div class="dropdown-menu text-capitalize">
+                        <a href="/Thongtin" class="dropdown-item">Thông tin tài khoản</a>
+                        <a href="/GioHang" class="dropdown-item">Giỏ hàng</a>
+                        <a href="/ResetPassUs" class="dropdown-item">Đổi mật khẩu</a>
+                        <a href="/LogOut" class="dropdown-item">Log out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Navbar End -->
+<!-- Page Header Start -->
+<div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+    <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+        <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Sản Phẩm</h1>
+        <div class="d-inline-flex mb-lg-5">
+            <p class="m-0 text-white"><a class="text-white" href="">Trang Chủ</a></p>
+            <p class="m-0 text-white px-2">/</p>
+            <p class="m-0 text-white">Sản Phẩm</p>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+<!-- Menu Start -->
+<div class="container-fluid pt-5">
+    <div class="container">
+        <div class="section-title">
+            <h4 class="text-primary text-uppercase">Sản Phẩm & Giá Tiền</h4>
+            <h1 class="display-4">Danh Mục</h1>
+
+            <br />
+        </div>
+        <br />
+        <!-- Page Header End -->
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-5 col-sm-10 border page-center">
+                    <div class="page-center  ">
+                        <div style="text-align:center" class="panel panel-heading">
+                            <strong> @item.nameProd</strong>
+                        </div>
+                        <div class="panel-body ">
+                            <p><strong>Loại: </strong>@item.Category.nameCate</p>
+                            <p><strong>Mô tả: </strong>@item.decription</p>
+                            <div class="content-image"><img src="@Html.DisplayFor(modelItem => item.images)" alt="hinh thumbnail" /></div>
+                        </div>
+                        <div class="panel-footer clearfix ">
+                            <div>
+                                <p><strong>Giá: </strong>@item.price VNĐ</p>
+                                <div class=" btn-act">
+                                    <a href="@Url.Action("ThemGioHang", "Cart",new { @id = item.idProd, @strURL = Request.Url.ToString() })">Thêm vào giỏ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!--PHân trang-->
+<div>
+    <div class="page">
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) /@Model.PageCount
+    </div>
+    <div class="page-list">
+        @Html.PagedListPager(Model, page => Url.Action("MenuUS", new
+        {
+            page = page
+        }))
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var maxLength = 100;
+        $(".show-read-more").each(function () {
+            var myStr = $(this).text();
+            if ($.trim(myStr).length > maxLength) {
+                var newStr = myStr.substring(0, maxLength);
+                var removedStr = myStr.substring(maxLength, $.trim(myStr).length);
+                $(this).empty().html(newStr);
+
+                $(this).append(' <a href="javascript:void(0);" class="read-more">đọc tiếp...</a>');
+
+                $(this).append('<span class="more-text">' + removedStr +
+                    '</span>');
+            }
+        });
+        $(".read-more").click(function () {
+            $(this).siblings(".more-text").contents().unwrap();
+
+            27
+
+            $(this).remove();
+        });
+    });
+</script>
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="~/lib/easing/easing.min.js"></script>
+<script src="~/lib/waypoints/waypoints.min.js"></script>
+<script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="~/lib/tempusdominus/js/moment.min.js"></script>
+<script src="~/lib/tempusdominus/js/moment-timezone.min.js"></script>
+<script src="~/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+<!-- Contact Javascript File -->
+<script src="~/mail/jqBootstrapValidation.min.js"></script>
+<script src="~/mail/contact.js"></script>
+
+<!-- Template Javascript -->
+<script src="~/js/main.js"></script>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHOMH2KT_WebCoffee", "NHOMH2KT_WebCoffee\NHOMH2KT_WebCoffee.csproj", "{A5DF979D-C09D-4F59-ABEE-5A8BC1842ECD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5DF979D-C09D-4F59-ABEE-5A8BC1842ECD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5DF979D-C09D-4F59-ABEE-5A8BC1842ECD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5DF979D-C09D-4F59-ABEE-5A8BC1842ECD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5DF979D-C09D-4F59-ABEE-5A8BC1842ECD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {774C46E8-ED58-4897-8AC5-8A8506177EC5}
+	EndGlobalSection
+EndGlobal

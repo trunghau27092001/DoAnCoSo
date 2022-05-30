@@ -1,0 +1,144 @@
+﻿@model IEnumerable<NHOMH2KT_WebCoffee.Models.Cart>
+
+@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/MyLayout/MyLayout.cshtml";
+    var taikhoan = Session["Account"] as NHOMH2KT_WebCoffee.Models.Account;
+}
+<link href="~/css/stylecustom.css" rel="stylesheet" type="text/css" media="screen" runat="server" />
+
+<!-- Navbar Start -->
+<div class="container-fluid p-0 nav-bar">
+    <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+        <a href="/HomeUs" class="navbar-brand px-lg-4 m-0">
+            <h1 class="m-0 display-4 text-uppercase text-white">H2KT</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto p-4">
+                <a href="/HomeUs" class="nav-item nav-link ">Trang Chủ</a>
+                <a href="/AboutUs" class="nav-item nav-link ">Về Chúng Tôi</a>
+                <a href="/ServiceUs" class="nav-item nav-link ">Dịch Vụ</a>
+                <a href="/MenuUs" class="nav-item nav-link ">Sản Phẩm</a>
+                <a href="/TestimonialUs" class="nav-item nav-link ">Đánh giá khách hàng</a>
+                <a href="/ContactUs" class="nav-item nav-link ">Thông Tin Liên Hệ</a>
+                <div class="nav-item dropdown">
+                    @Html.ValidationSummary(true)
+                    <a href="#" class="nav-link active  dropdown-toggle" data-toggle="dropdown">@taikhoan.nameCus</a>
+                    <div class="dropdown-menu text-capitalize">
+                        <a href="/Thongtin" class="dropdown-item">Thông tin tài khoản</a>
+                        <a href="/GioHang" class="dropdown-item">Giỏ hàng</a>
+                        <a href="/ResetPass" class="dropdown-item">Đổi mật khẩu</a>
+                        <a href="/LogOut" class="dropdown-item">Log out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Navbar End -->
+<div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+    <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+        <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Đặt Hàng</h1>
+        <div class="d-inline-flex mb-lg-5">
+            <p class="m-0 text-white"><a class="text-white" href="">Trang Chủ</a></p>
+            <p class="m-0 text-white px-2">/</p>
+            <p class="m-0 text-white">Đặt Hàng</p>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+<table class="table page-center">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nameProd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.images)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isoluong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dThanhtien)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nameProd)
+            </td>
+            <td>
+                <img src="@item.images" width="200px" height="200px" />
+            </td>
+            <td> @String.Format("{0:0,0}", item.price) VNĐ </td>
+            <td> @item.isoluong</td>
+            <td> @Html.DisplayFor(modelItem => item.dThanhtien) </td>
+        </tr>
+    }
+    <tr style="font-weight:bold;text-align:left;color:red">
+        <td >Số lượng sản phẩm:@ViewBag.Tongsoluong</td>
+        <td >Số loại sản phẩm:@ViewBag.Tongsoluongsanpham</td>
+        <td >
+            Tổng tiền:  
+            @String.Format("{0:0,0}", @ViewBag.Tongtien)VNĐ
+        </td>
+    </tr>
+    
+
+</table>
+@using NHOMH2KT_WebCoffee.Models
+<h2 style="text-align:center">Thông tin đặt hàng</h2>
+@{
+    var account = Session["Account"] as NHOMH2KT_WebCoffee.Models.Account;
+}
+<table align="center">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <tr style="height:40px">
+            <td>Họ tên khách hàng: </td>
+            <td style="font-weight:bold">@account.nameCus</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Email: </td>
+            <td style="font-weight:bold">@account.email</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Địa chỉ: </td>
+            <td style="font-weight:bold">@account.addressCus</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Điện thoại: </td>
+            <td style="font-weight:bold">@account.phoneNum</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Ngày đặt: </td>
+            <td style="font-weight:bold">@DateTime.Now.ToShortDateString()</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Ngày giao: </td>
+            <td style="font-weight:bold">
+                <input type="date" name="NgayGiao" />
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td> </td>
+            <td style="font-weight:bold" class="btn-cre">
+                <input type="submit" value="Xác nhận" />
+            </td>
+        </tr>
+    }
+</table>
+<div class="btn-back">
+    <a href="/GioHang"><< Trở lại</a>
+</div>
